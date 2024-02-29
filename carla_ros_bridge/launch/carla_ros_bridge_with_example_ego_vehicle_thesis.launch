@@ -1,0 +1,16 @@
+<!-- -->
+<launch>
+
+ <!-- <include file="$(find carla_ros_bridge)/launch/carla_ros_bridge_thesis.launch">
+
+  </include> -->
+  
+  <include file="$(find carla_spawn_objects)/launch/carla_example_ego_vehicle_thesis.launch">
+
+  </include>
+
+  <include file="$(find carla_manual_control)/launch/carla_manual_control_thesis.launch">
+
+  </include>
+
+</launch>

@@ -1,0 +1,25 @@
+<launch>
+<node pkg="juno_aug"
+  name="steering_brake_node"
+  type="steering_brake_node.py"
+  output="screen"
+/>
+<node pkg="juno_aug"
+  name="path_planning"
+  type="path_planning.py"
+  output="screen"
+/>
+<!--node pkg="juno_aug"
+  name="enable_node"
+  type="enable_node.py"
+  output="screen"
+/-->
+    <arg name="offline"          default="false"/>
+    <include unless="$(arg offline)" 
+        file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="align_depth" value="true"/>
+        <arg name="linear_accel_cov" value="1.0"/>
+        <arg name="unite_imu_method" value="linear_interpolation"/>
+    </include>
+    
+</launch>

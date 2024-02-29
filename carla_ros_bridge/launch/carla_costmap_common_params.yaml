@@ -1,0 +1,28 @@
+obstacle_range: 30 # max distance from robot sensor at which obstacle is added to costmap
+raytrace_range: 30 # max distance at which the robot will clear free space (mark cells as free) in the costmap
+#footprint: [ [-0.443, -0.608], [-0.443, 0.608], [2.445, 0.608], [2.445, -0.608] ]
+#prendi misure su juno
+footprint_padding: 0.5 # adds extra padding around robot footprint
+#robot_radius: ir_of_robot
+inflation_radius: 0.5 # cells up to this distance away from obstacle will have same cost value as the cells occupied by the obstacle.\
+transform_tolerance: 1 # the time in seconds that set how often to keep looking back for transform data
+
+controller_patience: 1000000000.0 # amount of time controller will wait before deciding control effort has failed
+planner_patience: 10000000000.0 # amount of time planner will wait before deciding that planning effort has failed
+
+NavfnROS:
+    allow_unknown: true # for 'NavfnROS' planner, to consider unknown space as free space
+
+clearing_rotation_allowed: false
+
+recovery_behavior_enabled: false
+
+recovery_behaviors: [
+    {name: conservative_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
+    {name: aggressive_clear, type: clear_costmap_recovery/ClearCostmapRecovery}
+]
+
+conservative_clear: 
+    reset_distance: 3.00
+aggressive_clear:
+    reset_distance: 1.84

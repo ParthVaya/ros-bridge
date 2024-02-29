@@ -1,0 +1,11 @@
+global_costmap:
+  width: 25
+  height: 25
+  resolution: 0.1
+  global_frame: ego_vehicle
+  robot_base_frame: ego_vehicle
+  update_frequency: 0.1 # rate at which costmap will be updated
+  publish_frequency: 0.1 # rate at which costmap will publish visualization information
+  static_map: false # determines whether or not costmap should initialize itself based on previously created map served by map server. If not using existing map, set to false
+  inflation_radius: 0.5
+  rolling_window: True # setting this to True will keep the costmap centred around the robot as the robot moves through the environment

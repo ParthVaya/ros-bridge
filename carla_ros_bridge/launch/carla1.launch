@@ -1,5 +1,6 @@
 <!-- -->
 <launch>
+
   <!-- CARLA connection -->
   <arg name='host' default='localhost'/>
   <arg name='port' default='2000'/>
@@ -40,9 +41,15 @@
     <arg name="spawn_point_ego_vehicle" value="$(arg spawn_point)"/>
     <arg name="spawn_sensors_only" value="false"/>
   </include>
+  
+  <node pkg="carla_ros_bridge"
+        name="carla_path_planning"
+        type="carla_path_planning.py"
+        output="screen"/>
 
-  <include file="$(find carla_manual_control)/launch/carla_manual_control.launch">
-    <arg name='role_name' value='$(arg role_name)'/>
-  </include>
+  <node pkg="carla_ros_bridge"
+        name="carla_steering_brake"
+        type="carla_steering_brake.py"
+        output="screen"/>
 
 </launch>

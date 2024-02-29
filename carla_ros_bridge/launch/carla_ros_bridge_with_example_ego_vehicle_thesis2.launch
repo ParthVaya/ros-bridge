@@ -7,7 +7,7 @@
 
   <!-- Ego vehicle -->
   <arg name='role_name' default='ego_vehicle'/>
-  <arg name="vehicle_filter" default='micro'/>
+  <arg name="vehicle_filter" default='tesla'/>
   <arg name="spawn_point" default=""/><!-- use comma separated format "x,y,z,roll,pitch,yaw" -->
 
   <!-- Map to load on startup (either a predefined CARLA town (e.g. 'Town01'), or a OpenDRIVE map file) -->
@@ -34,14 +34,14 @@
   </include>
 
   <!-- the ego vehicle, that will be controlled by an agent (e.g. carla_ad_agent) -->
-  <include file="$(find carla_spawn_objects)/launch/carla_example_ego_vehicle.launch">
-    <arg name="objects_definition_file" value='$(find carla_spawn_objects)/config/objects.json'/>
+  <include file="$(find carla_spawn_objects)/launch/carla_example_ego_vehicle_thesis.launch">
+    <arg name="objects_definition_file" value='$(find carla_spawn_objects)/config/objects_thesis.json'/>
     <arg name='role_name' value='$(arg role_name)'/>
     <arg name="spawn_point_ego_vehicle" value="$(arg spawn_point)"/>
     <arg name="spawn_sensors_only" value="false"/>
   </include>
 
-  <include file="$(find carla_manual_control)/launch/carla_manual_control.launch">
+  <include file="$(find carla_manual_control)/launch/carla_manual_control_thesis.launch">
     <arg name='role_name' value='$(arg role_name)'/>
   </include>
 
