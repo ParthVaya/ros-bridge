@@ -61,12 +61,12 @@
         
   </group>   
   
-    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
+ <!--   <node pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
         <param name="use_mag" type="bool" value="false" />
         <param name="_publish_tf" type="bool" value="false" />
         <param name="_world_frame" type="string" value="enu" />
         <remap from="/imu/data_raw" to="/carla/ego_vehicle/imu"/>
-    </node>   
+    </node>   -->
     
         <include file="$(find carla_ros_bridge)/launch/rtabmap.launch">
         <arg name="gui_cfg" default="~/.ros/rtabmap_gui.ini" />
