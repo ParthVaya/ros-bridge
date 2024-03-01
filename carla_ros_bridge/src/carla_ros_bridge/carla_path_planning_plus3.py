@@ -442,8 +442,8 @@ def preprocessing_mask(seg, show=False,open=True, close=True ):
             color_seg[seg_mask_ == index+1] = color_list_seg[seg_class]
     color_seg = color_seg[..., ::-1]
     color_mask = np.mean(color_seg, 2)
-    _, end_mask = cv2.threshold(color_mask,0,255, cv2.THRESH_BINARY)
 
+    _, end_mask = cv2.threshold(color_mask,0,255, cv2.THRESH_BINARY)
     _,labeled_image, stats, _ = cv2.connectedComponentsWithStats(image=np.uint8(end_mask))
     wanted_label=np.argmax(stats[1::,4])+1
     end_mask=np.array(np.where(labeled_image==wanted_label,255,0),dtype=np.uint8)
