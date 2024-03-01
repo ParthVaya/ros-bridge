@@ -84,14 +84,14 @@
      </include>
   
   <node pkg="carla_ros_bridge"
-        name="carla_path_planning"
-        type="carla_path_planning.py"
+        name="carla_path_planning_plus2"
+        type="carla_path_planning_plus2.py"
         output="screen"/>
         
   <node pkg="carla_ros_bridge"
-	name="carla_obstacle_avoidance"
-	type="carla_obstacle_avoidance.py"
-	output="screen"/>    
+        name="carla_obstacle_avoidance"
+        type="carla_obstacle_avoidance.py"
+        output="screen"/>    
 
   <node pkg="carla_ros_bridge"
         name="carla_steering_brake"
