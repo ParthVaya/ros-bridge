@@ -49,7 +49,7 @@ for seg_class in params.seg_list:
     color_list_seg[seg_class] = list(np.random.choice(range(256), size=3))
 shapes = [((720, 1280), ((0.5, 0.5), (0.0, 12.0)))]
 
-DEBUG = False
+DEBUG = True
 SIMULATION = False
 LANE_METERS = 9.8
 Y_METERS = {
@@ -367,8 +367,8 @@ def computing_lateral_distance(line_edges, show=False):
         posm = midpoints[-1]
         midpoints = midpoints[:-1]
         cv2.circle(line_edges, tuple(posm[::-1]), 2, (255, 255, 255), 5)
-        for p in midpoints:
-            cv2.circle(line_edges, tuple(p[::-1]), 2, (200, 200, 200), 3)
+    #     for p in midpoints:
+    #         cv2.circle(line_edges, tuple(p[::-1]), 2, (200, 200, 200), 3)
 
     return later_distance_meters, long_dist, curvature
 
@@ -525,10 +525,12 @@ def image_callback(data):
     if len(mask.shape) == 2:
         mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)"""
 
-    resized_image = cv2.resize(cv_image, (200, 200))
-    resized_mask = cv2.resize(mask, (200, 200))
-    resized_line_edges = cv2.resize(line_edges, (200, 200))
+    resized_image = cv2.resize(cv_image, (540, 360))
+    resized_mask = cv2.resize(mask, (540, 360))
+    resized_line_edges = cv2.resize(line_edges, (540, 360))
     concatenated_image = np.hstack((resized_image, cv2.cvtColor(resized_mask, cv2.COLOR_GRAY2RGB), cv2.cvtColor(resized_line_edges, cv2.COLOR_GRAY2BGR)))
+
+    #concatenated_image = np.hstack((resized_image, cv2.cvtColor(resized_mask, cv2.COLOR_GRAY2RGB), cv2.cvtColor(resized_line_edges, cv2.COLOR_GRAY2BGR)))
 
     if lateral_distance == -np.inf:
         degree_steering_angle = -40.0

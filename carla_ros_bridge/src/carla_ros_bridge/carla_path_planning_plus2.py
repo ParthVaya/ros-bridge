@@ -316,8 +316,8 @@ def computing_lateral_distance(line_edges, show=False):
         posm = midpoints[-1]
         midpoints = midpoints[:-1]
         cv2.circle(line_edges, tuple(posm[::-1]), 2, (255, 255, 255), 5)
-        for p in midpoints:
-            cv2.circle(line_edges, tuple(p[::-1]), 2, (200, 200, 200), 3)
+        # for p in midpoints:
+        #     cv2.circle(line_edges, tuple(p[::-1]), 2, (200, 200, 200), 3)
 
     return later_distance_meters, long_dist, curvature
 
